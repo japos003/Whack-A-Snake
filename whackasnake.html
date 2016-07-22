@@ -1,0 +1,124 @@
+<html>
+<title>
+Whack-a-Snake
+</title>
+
+<head>
+
+<style>
+
+body {
+	background: #1f1f1f;
+}
+
+h1 {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	color: #707070;
+	background-color: #2f2f2f;
+}
+
+div {
+	background-color: #2f2f2f;
+	-webkit-animation: mymove 5s infinite;
+	animation: mymove 5s infinite;
+}
+
+p{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: #8f8f8f;
+	background-color: #2f2f2f;
+}
+
+</style>
+
+</head>
+
+<script>
+var score = 0;
+
+var listOfImg = ["<img src=\"pics/Snake.jpg\" onclick=\"snake()\" style=\"width:200;height:200;\">",
+				"<img src=\"pics/ChickenSnake.jpg\" onclick=\"chickensnake()\" style=\"width:200;height:200;\">",
+				"<img src=\"pics/DDog.jpg\" onclick=\"ddog()\" style=\"width:200;height:200;\">"];
+
+document.getElementById("score").innerHTML = "Score: " + score;
+
+window.alert("Whack one of the snakes to get the highest score.\n-- Chicken Snake: 100\n-- Venom Snake: 50\n-- D-Dog: -50");
+
+function snake(){
+    addScore(50);
+	document.getElementById("score").innerHTML = "Score: " + score;
+}
+
+function chickensnake(){
+	addScore(100);
+	document.getElementById("score").innerHTML = "Score: " + score;
+}
+
+function ddog(){
+	addScore(-50);
+}
+
+function randomize(){
+	var scriptToBoard = "<marquee scrollamount=\"45\">";
+	for(entry = 0; entry < 100; entry++)
+		scriptToBoard += listOfImg[Math.floor(Math.random()*3+3)*100%3]
+	scriptToBoard += "</marquee>";
+	document.getElementById("mainscreen").innerHTML = scriptToBoard;
+}
+
+function addScore(scoreNum){
+	score += scoreNum;
+	if(score <= 0){
+		document.getElementById("mainscreen").innerHTML = "<center><h1>GAME OVER</h1></center>";
+	}
+	document.getElementById("score").innerHTML = "Score: " + score;
+}
+
+</script>
+
+<body>
+<h1>
+	<center>Welcome to Whack-A-Snake!</center>
+</h1>
+
+<div id="mainscreen">
+<center><button type="button" onClick="randomize()">Click Here to Start!</button></center>
+<!--	BACKUP
+<marquee scrollamount="45">
+<img src="pics/Snake.jpg" onclick="snake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/ChickenSnake.jpg" onclick="chickensnake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Snake.jpg" onclick="snake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/ChickenSnake.jpg" onclick="chickensnake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Snake.jpg" onclick="snake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/ChickenSnake.jpg" onclick="chickensnake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/ChickenSnake.jpg" onclick="chickensnake()" style="width:200;height:200;">
+<img src="pics/ChickenSnake.jpg" onclick="chickensnake()" style="width:200;height:200
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Snake.jpg" onclick="snake()" style="width:200;height:200;">
+<img src="pics/Snake.jpg" onclick="snake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/ChickenSnake.jpg" onclick="chickensnake()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+<img src="pics/Ddog.jpg" onclick="ddog()" style="width:200;height:200;">
+</marquee>
+-->
+</div>
+<center><p id="score">Score: 0</p></center>
+</body>
+
+</html>
