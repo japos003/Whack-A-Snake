@@ -1,5 +1,5 @@
 AUTHOR: JON RAPHAEL APOSTOL
-DATE UPDATED: 22 JULY 2016
+DATE UPDATED: 1 SEPTEMBER 2016
 
 This webpage is a simple game, where you click on the characters to get the highest score.
 
